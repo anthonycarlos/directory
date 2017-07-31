@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Students</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Student first</th>
+      <th>Student last</th>
+      <th>Teacher</th>
+      <th>Grade</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Mother first</th>
+      <th>Mother last</th>
+      <th>Mother email</th>
+      <th>Mother phone number</th>
+      <th>Mother phone type</th>
+      <th>Father first</th>
+      <th>Father last</th>
+      <th>Father email</th>
+      <th>Father phone number</th>
+      <th>Father phone type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.student_first %></td>
+        <td><%= student.student_last %></td>
+        <td><%= student.teacher %></td>
+        <td><%= student.grade %></td>
+        <td><%= student.address %></td>
+        <td><%= student.city %></td>
+        <td><%= student.state %></td>
+        <td><%= student.zip %></td>
+        <td><%= student.mother_first %></td>
+        <td><%= student.mother_last %></td>
+        <td><%= student.mother_email %></td>
+        <td><%= student.mother_phone_number %></td>
+        <td><%= student.mother_phone_type %></td>
+        <td><%= student.father_first %></td>
+        <td><%= student.father_last %></td>
+        <td><%= student.father_email %></td>
+        <td><%= student.father_phone_number %></td>
+        <td><%= student.father_phone_type %></td>
+        <td><%= link_to 'Show', student %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Student', new_student_path %>
