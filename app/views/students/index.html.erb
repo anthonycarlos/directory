@@ -5,24 +5,13 @@
 <table class="table table-striped table-bordered table-hover">
   <thead class="thead-default">
     <tr>
-      <th>Student first</th>
-      <th>Student last</th>
+      <th>Last</th>
+      <th>First</th>
       <th>Teacher</th>
       <th>Grade</th>
       <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th>Mother first</th>
-      <th>Mother last</th>
-      <th>Mother email</th>
-      <th>Mother phone number</th>
-      <th>Mother phone type</th>
-      <th>Father first</th>
-      <th>Father last</th>
-      <th>Father email</th>
-      <th>Father phone number</th>
-      <th>Father phone type</th>
+      <th>Mother</th>
+      <th>Father</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -30,24 +19,24 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
-        <td><%= student.student_first %></td>
         <td><%= student.student_last %></td>
+        <td><%= student.student_first %></td>
         <td><%= student.teacher %></td>
         <td><%= student.grade %></td>
-        <td><%= student.address %></td>
-        <td><%= student.city %></td>
-        <td><%= student.state %></td>
-        <td><%= student.zip %></td>
-        <td><%= student.mother_first %></td>
-        <td><%= student.mother_last %></td>
-        <td><%= student.mother_email %></td>
-        <td><%= student.mother_phone_number %></td>
-        <td><%= student.mother_phone_type %></td>
-        <td><%= student.father_first %></td>
-        <td><%= student.father_last %></td>
-        <td><%= student.father_email %></td>
-        <td><%= student.father_phone_number %></td>
-        <td><%= student.father_phone_type %></td>
+        <td>
+          <%= student.address %><br />
+          <%= student.city %>, <%= student.state %> <%= student.zip %>
+        </td>
+        <td>
+          <%= student.mother_first %> <%= student.mother_last %><br />
+          E-mail: <%= student.mother_email %><br />
+          <%= student.mother_phone_type %>: <%= student.mother_phone_number %>
+        </td>
+        <td>
+          <%= student.father_first %> <%= student.father_last %><br />
+          E-mail: <%= student.father_email %><br />
+          <%= student.father_phone_type %>: <%= student.father_phone_number %>
+        </td>
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
         <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
