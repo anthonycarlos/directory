@@ -2,7 +2,7 @@
 
 <h1>Students</h1>
 
-<table class="table table-striped table-bordered table-hover">
+<table class="table table-responsive table-striped table-bordered table-hover">
   <thead class="thead-default">
     <tr>
       <th>Last</th>
@@ -30,12 +30,12 @@
         <td>
           <%= student.mother_first %> <%= student.mother_last %><br />
           E-mail: <%= student.mother_email %><br />
-          <%= student.mother_phone_type %>: <%= student.mother_phone_number %>
+          <%= student.mother_phone_type %>: <%= student.formatted_mother_phone_number %>
         </td>
         <td>
           <%= student.father_first %> <%= student.father_last %><br />
           E-mail: <%= student.father_email %><br />
-          <%= student.father_phone_type %>: <%= student.father_phone_number %>
+          <%= student.father_phone_type %>: <%= student.formatted_father_phone_number %>
         </td>
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
