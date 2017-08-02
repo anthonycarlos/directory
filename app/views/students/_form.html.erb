@@ -45,7 +45,8 @@
 
   <div class="field">
     <%= form.label :state %>
-    <%= form.text_field :state, id: :student_state %>
+    <% states_array = State.all.map { |state| ["#{state}", "#{state}"] } %>
+    <%= form.select(:state, options_for_select(states_array, student.state)) %>
   </div>
 
   <div class="field">
