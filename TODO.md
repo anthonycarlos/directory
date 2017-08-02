@@ -10,9 +10,5 @@ Here are the most important parts of this directory application.
 
 * Simplify data entry
 
-* Drop-down for teacher
-
-* Drop-down for teacher title
-
-* Drop-down for teacher grade
+* Drop-down for state
 

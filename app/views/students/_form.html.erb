@@ -23,12 +23,14 @@
 
   <div class="field">
     <%= form.label :teacher %>
-    <%= form.text_field :teacher, id: :student_teacher %>
+    <% teachers_array = Teacher.all.order(:last).map { |teacher| ["#{teacher.title} #{teacher.last}", "#{teacher.title} #{teacher.last}"] } %>
+    <%= form.select(:teacher, options_for_select(teachers_array, student.teacher)) %>
   </div>
 
   <div class="field">
     <%= form.label :grade %>
-    <%= form.text_field :grade, id: :student_grade %>
+    <% grades_array = Grade.all.map { |grade| ["#{grade}", "#{grade}"] } %>
+    <%= form.select(:grade, options_for_select(grades_array, student.grade)) %>
   </div>
 
   <div class="field">
@@ -73,7 +75,8 @@
 
   <div class="field">
     <%= form.label :mother_phone_type %>
-    <%= form.text_field :mother_phone_type, id: :student_mother_phone_type %>
+    <% phone_types_array = PhoneType.all.map { |phone_type| ["#{phone_type}", "#{phone_type}"] } %>
+    <%= form.select(:mother_phone_type, options_for_select(phone_types_array, student.mother_phone_type)) %>
   </div>
 
   <div class="field">
@@ -98,7 +101,7 @@
 
   <div class="field">
     <%= form.label :father_phone_type %>
-    <%= form.text_field :father_phone_type, id: :student_father_phone_type %>
+    <%= form.select(:father_phone_type, options_for_select(phone_types_array, student.father_phone_type)) %>
   </div>
 
   <div class="actions">
