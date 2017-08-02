@@ -19,8 +19,8 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
-        <td><%= link_to '', edit_student_path(student), class: 'fa fa-pencil' %></td>
-        <td><%= link_to '', student, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash-o" %></td>
+        <td><%= link_to '', edit_student_path(student), class: 'fa fa-pencil fa-lg' %></td>
+        <td><%= link_to '', student, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash-o fa-lg" %></td>
         <td><%= student.student_last %></td>
         <td><%= student.student_first %></td>
         <td><%= student.teacher %></td>
@@ -46,4 +46,6 @@
 
 <br>
 
-<%= link_to 'New Student', new_student_path %>
+<%= link_to new_student_path, class: "btn btn-default" do %>
+  <i class="fa fa-plus fa-lg"></i>&nbsp;New Student
+<% end %>
