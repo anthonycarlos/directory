@@ -5,6 +5,7 @@
 <table class="table table-responsive table-striped table-bordered table-hover">
   <thead class="thead-default">
     <tr>
+      <th colspan="2">&nbsp;</th>
       <th>Last</th>
       <th>First</th>
       <th>Teacher</th>
@@ -12,13 +13,14 @@
       <th>Address</th>
       <th>Mother</th>
       <th>Father</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @students.each do |student| %>
       <tr>
+        <td><%= link_to '', edit_student_path(student), class: 'fa fa-pencil' %></td>
+        <td><%= link_to '', student, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash-o" %></td>
         <td><%= student.student_last %></td>
         <td><%= student.student_first %></td>
         <td><%= student.teacher %></td>
@@ -37,9 +39,6 @@
           E-mail: <%= student.father_email %><br />
           <%= student.father_phone_type %>: <%= student.formatted_father_phone_number %>
         </td>
-        <td><%= link_to 'Show', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
