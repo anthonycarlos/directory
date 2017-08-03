@@ -19,3 +19,7 @@ Here are the most important parts of this directory application.
 * Make Father display conditional
 
 * Make e-mail and phone display conditional
+
+* Make non-determinant defaults
+
+* Make e-mails links
