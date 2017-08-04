@@ -1,4 +1,7 @@
 class Student < ApplicationRecord
+  scoped_search on: [:student_first, :student_last]
+  scoped_search on: :teacher, profile: :teachers
+  scoped_search on: :grade, profile: :grades
 
   before_save :strip_formatting
 

@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+    @students = Student.search_for(params[:name]).search_for(params[:teacher], profile: :teachers).search_for(params[:grade], profile: :grades)
   end
 
   # GET /students/1
