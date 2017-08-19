@@ -38,18 +38,13 @@
         <td><%= student.teacher %></td>
         <td><%= student.grade %></td>
         <td style="word-break: break-all;">
-          <%= student.address %><br />
-          <%= student.city %>, <%= student.state %> <%= student.zip %>
+          <%= display_address(student) %>
         </td>
         <td>
-          <%= student.mother_first %> <%= student.mother_last %><br />
-          E-mail: <%= student.mother_email %><br />
-          <%= student.mother_phone_type %>: <%= student.formatted_mother_phone_number %>
+          <%= display_mother(student) %>
         </td>
         <td>
-          <%= student.father_first %> <%= student.father_last %><br />
-          E-mail: <%= student.father_email %><br />
-          <%= student.father_phone_type %>: <%= student.formatted_father_phone_number %>
+          <%= display_father(student) %>
         </td>
       </tr>
     <% end %>
