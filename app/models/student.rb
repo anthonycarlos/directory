@@ -2,7 +2,15 @@ class Student < ApplicationRecord
   has_many :parent_guardians
   belongs_to :homeroom
 
-  scoped_search on: [:student_first, :student_last]
+  validates_presence_of :first
+  validates_presence_of :last
+  validates_presence_of :grade
+  validates_presence_of :address
+  validates_presence_of :city
+  validates_presence_of :state
+  validates_presence_of :zip
+
+  scoped_search on: [:first, :last]
   scoped_search on: :teacher, profile: :teachers
   scoped_search on: :grade, profile: :grades
 

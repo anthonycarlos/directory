@@ -21,11 +21,11 @@
     <tr>
       <th colspan="2">&nbsp;</th>
       <th>Name</th>
-      <th>Teacher</th>
+      <th>Homeroom</th>
       <th>Grade</th>
       <th>Address</th>
-      <th>Mother</th>
-      <th>Father</th>
+      <th>Parent/Guardian 1</th>
+      <th>Parent/Guardian 2</th>
     </tr>
   </thead>
 
@@ -34,17 +34,17 @@
       <tr>
         <td><%= link_to '', edit_student_path(student), class: 'fa fa-pencil fa-lg' %></td>
         <td><%= link_to '', student, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash-o fa-lg" %></td>
-        <td><%= student.student_last %>, <%= student.student_first %></td>
-        <td><%= student.teacher %></td>
+        <td><%= student.last %>, <%= student.first %></td>
+        <td><%= student.homeroom.name %></td>
         <td><%= student.grade %></td>
         <td style="word-break: break-all;">
           <%= display_address(student) %>
         </td>
         <td>
-          <%= display_mother(student) %>
+          <%= display_parent_guardian(student, 1) %>
         </td>
         <td>
-          <%= display_father(student) %>
+          <%= display_parent_guardian(student, 2) %>
         </td>
       </tr>
     <% end %>
