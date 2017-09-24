@@ -3,6 +3,7 @@ namespace :directory do
   task :load_students => :environment do
     records = []
     count = 1
+    # File is expected to exist at RAILS_ROOT.
     File.open('201718-directory.txt', 'r') do |f|
       f.each_line("\r") do |line|
         parsed_line = line.split("\t")

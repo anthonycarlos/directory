@@ -5,10 +5,10 @@
 <%= form_tag(students_path, method: :get) do %>
   <%= label_tag :name %>
   <%= text_field_tag :name, params[:name] %>
-  <% teachers_array = Teacher.all.order(:last).map { |teacher| ["#{teacher.title} #{teacher.last}", "#{teacher.title} #{teacher.last}"] } %>
-  <%= label_tag :teacher %>
-  <%= select_tag :teacher, options_for_select(teachers_array, params[:teacher]), :include_blank => true %>
-  <% grades_array = Grade.all.map { |grade| [grade, grade] } %>
+  <% homeroom_array = Homeroom.all.order(:name).map { |homeroom| ["#{homeroom.name}", "#{homeroom.name}"] } %>
+  <%= label_tag :homeroom %>
+  <%= select_tag :homeroom, options_for_select(homeroom_array, params[:homeroom]), :include_blank => true %>
+  <% grades_array = Grade.all.map { |grade| [grade.values.first, grade.keys.first] } %>
   <%= label_tag :grade %>
   <%= select_tag :grade, options_for_select(grades_array, params[:grade]), :include_blank => true %>
   <%= submit_tag 'Search', name: nil %>
@@ -36,7 +36,7 @@
         <td><%= link_to '', student, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash-o fa-lg" %></td>
         <td><%= student.last %>, <%= student.first %></td>
         <td><%= student.homeroom.name %></td>
-        <td><%= student.grade %></td>
+        <td><%= display_grade(student) %></td>
         <td style="word-break: break-all;">
           <%= display_address(student) %>
         </td>

@@ -14,9 +14,14 @@ module StudentsHelper
     output = ''
     if pg = student.parent_guardians.find_by_order(order)
       output << "#{pg.first} #{pg.last}<br />"
-      output << "#{pg.email}<br />" if pg.email
+      output << "#{pg.email}<br />" unless pg.email.blank?
       output << "#{pg.phone}" unless pg.phone.blank?
     end
+    output.html_safe
+  end
+
+  def display_grade(student)
+    output = (student.grade == 0 ? 'K' : student.grade.to_s)
     output.html_safe
   end
 
