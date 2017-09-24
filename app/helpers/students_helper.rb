@@ -10,9 +10,9 @@ module StudentsHelper
     output.html_safe
   end
 
-  def display_parent_guardian(student, order)
+  def display_parent_guardian(student, position)
     output = ''
-    if pg = student.parent_guardians.find_by_order(order)
+    if pg = student.parent_guardians.find_by_position(position)
       output << "#{pg.first} #{pg.last}<br />"
       output << "#{pg.email}<br />" unless pg.email.blank?
       output << "#{pg.phone}" unless pg.phone.blank?

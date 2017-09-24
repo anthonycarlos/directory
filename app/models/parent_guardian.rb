@@ -3,7 +3,7 @@ class ParentGuardian < ApplicationRecord
 
   validates_presence_of :first
   validates_presence_of :last
-  validates_presence_of :order
+  validates_presence_of :position
 
   before_save :strip_formatting
 

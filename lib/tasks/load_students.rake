@@ -46,10 +46,12 @@ namespace :directory do
 
     puts "Records: #{named_records.count}"
 
-    # Now let's create objects
+    # Now let's create objects.
     named_records.each_with_index do |record, i|
-      # Does the homeroom exist? If not, create it. Since there are
-      # less than 20 homerooms, we'll associate the teachers later.
+      # Does the teacher exist? If not, create it.
+      # Does the homeroom exist? If not, create it.
+      # Create the student.
+      # Create the student's parents.
       teacher = Teacher.find_or_create_by(last: record['home_room'].split(',').first)
       homeroom = Homeroom.find_or_create_by(name: record['home_room'])
       homeroom.teacher = teacher
@@ -68,14 +70,14 @@ namespace :directory do
                                                            phone: record['pg1_phone'],
                                                            email: record['pg1_email'],
                                                            student: student,
-                                                           order: 1
+                                                           position: 1
                                                           )
       parent_guardian_2 = ParentGuardian.find_or_create_by(first: record['pg2_first_name'],
                                                            last: record['pg2_last_name'],
                                                            phone: record['pg2_phone'],
                                                            email: record['pg2_email'],
                                                            student: student,
-                                                           order: 2
+                                                           position: 2
                                                           )
     end
 
