@@ -1,9 +1,12 @@
 class Student < ApplicationRecord
+  has_many :parent_guardians
+  belongs_to :homeroom
+
   scoped_search on: [:student_first, :student_last]
   scoped_search on: :teacher, profile: :teachers
   scoped_search on: :grade, profile: :grades
 
-  before_save :strip_formatting
+  #before_save :strip_formatting
 
   def strip_formatting
     self.mother_phone_number = self.mother_phone_number.gsub(/[^0-9]/, '')
