@@ -4,7 +4,7 @@ Here are the most important parts of this directory application.
 
 * Fix edit function
 
-* Add 'hide' attribute
+* Add 'hidden' attribute
 
 * Clear search button
 

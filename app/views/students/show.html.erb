@@ -1,23 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Student first:</strong>
-  <%= @student.student_first %>
+  <strong>First:</strong>
+  <%= @student.first %>
 </p>
 
 <p>
-  <strong>Student last:</strong>
-  <%= @student.student_last %>
+  <strong>Last:</strong>
+  <%= @student.last %>
 </p>
 
 <p>
-  <strong>Teacher:</strong>
-  <%= @student.teacher %>
+  <strong>Homeroom:</strong>
+  <%= @student.homeroom.name %>
 </p>
 
 <p>
   <strong>Grade:</strong>
-  <%= @student.grade %>
+  <%= display_grade(@student) %>
 </p>
 
 <p>
@@ -41,53 +41,43 @@
 </p>
 
 <p>
-  <strong>Mother first:</strong>
-  <%= @student.mother_first %>
+  <strong>Parent/Guardian 1 First:</strong>
+  <%= @student.parent_guardians.first.first %>
 </p>
 
 <p>
-  <strong>Mother last:</strong>
-  <%= @student.mother_last %>
+  <strong>Parent/Guardian 1 Last:</strong>
+  <%= @student.parent_guardians.first.last %>
 </p>
 
 <p>
-  <strong>Mother email:</strong>
-  <%= @student.mother_email %>
+  <strong>Parent/Guardian 1 Phone:</strong>
+  <%= @student.parent_guardians.first.phone %>
 </p>
 
 <p>
-  <strong>Mother phone number:</strong>
-  <%= @student.formatted_mother_phone_number %>
+  <strong>Parent/Guardian 1 E-mail:</strong>
+  <%= @student.parent_guardians.first.email %>
 </p>
 
 <p>
-  <strong>Mother phone type:</strong>
-  <%= @student.mother_phone_type %>
+  <strong>Parent/Guardian 2 First:</strong>
+  <%= @student.parent_guardians.last.first %>
 </p>
 
 <p>
-  <strong>Father first:</strong>
-  <%= @student.father_first %>
+  <strong>Parent/Guardian 2 Last:</strong>
+  <%= @student.parent_guardians.last.last %>
 </p>
 
 <p>
-  <strong>Father last:</strong>
-  <%= @student.father_last %>
+  <strong>Parent/Guardian 2 Phone:</strong>
+  <%= @student.parent_guardians.last.phone %>
 </p>
 
 <p>
-  <strong>Father email:</strong>
-  <%= @student.father_email %>
-</p>
-
-<p>
-  <strong>Father phone number:</strong>
-  <%= @student.formatted_father_phone_number %>
-</p>
-
-<p>
-  <strong>Father phone type:</strong>
-  <%= @student.father_phone_type %>
+  <strong>Parent/Guardian 2 E-mail:</strong>
+  <%= @student.parent_guardians.last.email %>
 </p>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |

@@ -23,8 +23,8 @@
 
   <div class="field">
     <%= form.label :homeroom %>
-    <% homerooms_array = Homeroom.all.order(:name).map { |homeroom| ["#{homeroom.name}", "#{homeroom.name}"] } %>
-    <%= form.select(:homeroom, options_for_select(homerooms_array, student.homeroom.name)) %>
+    <% homerooms_array = Homeroom.all.order(:name).map { |homeroom| ["#{homeroom.name}", "#{homeroom.id}"] } %>
+    <%= form.select(:homeroom_id, options_for_select(homerooms_array, student.homeroom_id)) %>
   </div>
 
   <div class="field">
@@ -59,48 +59,29 @@
     <%= form.check_box :hidden, id: :student_hidden %>
   </div>
 
-  <div class="field">
-    <%= form.label :mother_first %>
-    <%= form.text_field :mother_first, id: :student_mother_first %>
-  </div>
+  <%= form.fields_for :parent_guardians do |parent_guardians_form| %>
+    <div class="field">
+      <%= parent_guardians_form.label :first %>
+      <%= parent_guardians_form.text_field :first, id: :first %>
+    </div>
 
-  <div class="field">
-    <%= form.label :mother_last %>
-    <%= form.text_field :mother_last, id: :student_mother_last %>
-  </div>
+    <div class="field">
+      <%= parent_guardians_form.label :last %>
+      <%= parent_guardians_form.text_field :last, id: :last %>
+    </div>
 
-  <div class="field">
-    <%= form.label :mother_email %>
-    <%= form.text_field :mother_email, id: :student_mother_email %>
-  </div>
+    <div class="field">
+      <%= parent_guardians_form.label :phone %>
+      <%= parent_guardians_form.text_field :phone, id: :phone %>
+    </div>
 
-  <div class="field">
-    <%= form.label :mother_phone_number %>
-    < phone_types_array = PhoneType.all.map { |phone_type| ["#{phone_type}", "#{phone_type}"] } >
-    < form.select(:mother_phone_type, options_for_select(phone_types_array, student.mother_phone_type)) >
-    < form.text_field :mother_phone_number, id: :student_mother_phone_number >
-  </div>
+    <div class="field">
+      <%= parent_guardians_form.label :email %>
+      <%= parent_guardians_form.text_field :email, id: :email %>
+    </div>
 
-  <div class="field">
-    <%= form.label :father_first %>
-    <%= form.text_field :father_first, id: :student_father_first %>
-  </div>
-
-  <div class="field">
-    <%= form.label :father_last %>
-    <%= form.text_field :father_last, id: :student_father_last %>
-  </div>
-
-  <div class="field">
-    <%= form.label :father_email %>
-    <%= form.text_field :father_email, id: :student_father_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :father_phone_number %>
-    < form.select(:father_phone_type, options_for_select(phone_types_array, student.father_phone_type)) >
-    < form.text_field :father_phone_number, id: :student_father_phone_number >
-  </div>
+    <%= parent_guardians_form.hidden_field :position, id: :position %>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>
