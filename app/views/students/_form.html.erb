@@ -24,7 +24,7 @@
   <div class="field">
     <%= form.label :homeroom %>
     <% homerooms_array = Homeroom.all.order(:name).map { |homeroom| ["#{homeroom.name}", "#{homeroom.name}"] } %>
-    <%= form.select(:homeroom, options_for_select(homerooms_array, student.homeroom)) %>
+    <%= form.select(:homeroom, options_for_select(homerooms_array, student.homeroom.name)) %>
   </div>
 
   <div class="field">
@@ -52,6 +52,11 @@
   <div class="field">
     <%= form.label :zip %>
     <%= form.text_field :zip, id: :student_zip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hidden %>
+    <%= form.check_box :hidden, id: :student_hidden %>
   </div>
 
   <div class="field">
