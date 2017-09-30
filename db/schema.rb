@@ -10,29 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170824015806) do
+ActiveRecord::Schema.define(version: 20170924021358) do
+
+  create_table "homerooms", force: :cascade do |t|
+    t.string "name"
+    t.integer "teacher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parent_guardians", force: :cascade do |t|
+    t.string "first"
+    t.string "last"
+    t.string "description"
+    t.string "phone"
+    t.string "email"
+    t.integer "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "position"
+  end
 
   create_table "students", force: :cascade do |t|
-    t.string "student_first"
-    t.string "student_last"
-    t.string "teacher"
     t.string "address"
     t.string "city"
     t.string "state"
     t.string "zip"
-    t.string "mother_first"
-    t.string "mother_last"
-    t.string "mother_email"
-    t.string "mother_phone_number"
-    t.string "mother_phone_type"
-    t.string "father_first"
-    t.string "father_last"
-    t.string "father_email"
-    t.string "father_phone_number"
-    t.string "father_phone_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "grade"
+    t.string "first"
+    t.string "last"
+    t.integer "homeroom_id"
+    t.integer "grade"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -40,7 +49,6 @@ ActiveRecord::Schema.define(version: 20170824015806) do
     t.string "last"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "grade"
   end
 
   create_table "users", force: :cascade do |t|

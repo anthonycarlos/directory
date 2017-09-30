@@ -10,23 +10,18 @@ module StudentsHelper
     output.html_safe
   end
 
-  def display_mother(student)
+  def display_parent_guardian(student, position)
     output = ''
-    if student.mother_first.present? || student.mother_last.present?
-      output << "#{student.mother_first} #{student.mother_last}<br />"
-      output << "#{student.mother_email}<br />" if student.mother_email
-      output << "#{student.mother_phone_type}: #{student.formatted_mother_phone_number}" unless student.mother_phone_number.blank?
+    if pg = student.parent_guardians.find_by_position(position)
+      output << "#{pg.first} #{pg.last}<br />"
+      output << "#{pg.email}<br />" unless pg.email.blank?
+      output << "#{pg.phone}" unless pg.phone.blank?
     end
     output.html_safe
   end
 
-  def display_father(student)
-    output = ''
-    if student.father_first.present? && student.father_last.present?
-      output << "#{student.father_first} #{student.father_last}<br />"
-      output << "#{student.father_email}<br />" if student.father_email
-      output << "#{student.father_phone_type}: #{student.formatted_father_phone_number}" unless student.father_phone_number.blank?
-    end
+  def display_grade(student)
+    output = (student.grade == 0 ? 'K' : student.grade.to_s)
     output.html_safe
   end
 
