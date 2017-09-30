@@ -2,7 +2,10 @@
 
 Here are the most important parts of this directory application.
 
+* Show student with one parent_guardian
+
 * Fix edit function
+** Add new parent_guardian
 
 * Add 'hidden' attribute
 
