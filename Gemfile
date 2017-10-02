@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Use CanCan
+gem 'cancan'
 # Use devise
 gem 'devise'
 # Use scoped_search
