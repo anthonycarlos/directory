@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924021358) do
+ActiveRecord::Schema.define(version: 20170924151937) do
 
   create_table "homerooms", force: :cascade do |t|
     t.string "name"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170924021358) do
     t.string "last"
     t.integer "homeroom_id"
     t.integer "grade"
+    t.boolean "hidden", default: true, null: false
   end
 
   create_table "teachers", force: :cascade do |t|

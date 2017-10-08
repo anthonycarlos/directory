@@ -2,9 +2,12 @@
 
 Here are the most important parts of this directory application.
 
-* Fix edit function
+* Show student with one parent_guardian
 
-* Add 'hide' attribute
+* Fix edit function
+** Add new parent_guardian
+
+* Add 'hidden' attribute
 
 * Clear search button
 
@@ -24,9 +27,9 @@ Here are the most important parts of this directory application.
 
 * Change color of hover
 
-* For ParentGuardians, change order to position.
-
 * Export to Excel
+
+* When loading students, automatically create a user for parents.
 
 * If a parent registered their e-mail and it was saved correctly,
   they can request a password reset and then login to their account.

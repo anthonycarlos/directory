@@ -2,6 +2,8 @@ class Student < ApplicationRecord
   has_many :parent_guardians
   belongs_to :homeroom
 
+  accepts_nested_attributes_for :parent_guardians
+
   validates_presence_of :first
   validates_presence_of :last
   validates_presence_of :grade
