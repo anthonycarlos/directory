@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Students</h1>
+<h1>Student Directory</h1>
 
 <%= form_tag(students_path, method: :get) do %>
   <%= label_tag :name %>
@@ -19,7 +19,9 @@
 <table class="table table-responsive table-striped table-bordered table-hover">
   <thead class="thead-default">
     <tr>
+      <% if current_user.admin? %>
       <th colspan="2">&nbsp;</th>
+      <% end %>
       <th>Name</th>
       <th>Homeroom</th>
       <th>Grade</th>
@@ -32,8 +34,10 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
+        <% if current_user.admin? %>
         <td><%= link_to '', edit_student_path(student), class: 'fa fa-pencil fa-lg' %></td>
         <td><%= link_to '', student, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash-o fa-lg" %></td>
+        <% end %>
         <td><%= student.last %>, <%= student.first %></td>
         <td><%= student.homeroom.name %></td>
         <td><%= display_grade(student) %></td>
@@ -53,6 +57,8 @@
 
 <br>
 
+<% if current_user.admin? %>
 <%= link_to new_student_path, class: "btn btn-default" do %>
   <i class="fa fa-plus fa-lg"></i>&nbsp;New Student
+<% end %>
 <% end %>

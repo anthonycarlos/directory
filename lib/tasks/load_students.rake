@@ -72,6 +72,12 @@ namespace :directory do
                                                            student: student,
                                                            position: 1
                                                           )
+      user_1 = User.find_by(email: record['pg1_email'])
+      unless user_1
+         user_1 = User.create(email: record['pg1_email'],
+                              password: 'abc123'
+                             )
+      end
       parent_guardian_2 = ParentGuardian.find_or_create_by(first: record['pg2_first_name'],
                                                            last: record['pg2_last_name'],
                                                            phone: record['pg2_phone'],
@@ -79,6 +85,12 @@ namespace :directory do
                                                            student: student,
                                                            position: 2
                                                           )
+      user_2 = User.find_by(email: record['pg2_email'])
+      unless user_2
+         user_2 = User.create(email: record['pg2_email'],
+                              password: 'abc123'
+                             )
+      end
     end
 
   end
