@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Use sendgrid for e-mail on Heroku.
+gem 'sendgrid-ruby'
 # Use devise for authentication.
 gem 'devise'
 # Use pundit for authorization.
@@ -22,7 +24,7 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
-# Use sqlite3 as the database for Active Record
+# Use postgres as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
