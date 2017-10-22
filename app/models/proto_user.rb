@@ -1,0 +1,3 @@
+class ProtoUser < ApplicationRecord
+
+end
