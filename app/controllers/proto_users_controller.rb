@@ -10,6 +10,7 @@ class ProtoUsersController < ApplicationController
 
     respond_to do |format|
       if @proto_user.save
+        ProtoUserMailer.request_account_email(@proto_user).deliver_now
         format.html { redirect_to @proto_user, notice: 'Account request successfully created.' }
         format.json { render :show, status: :created, location: @proto_user }
       else
