@@ -42,3 +42,13 @@ reset.
 
 * Audit history?
 
+* When someone requests an account, e-mail the admins.
+
+* Allow admins to see requested account.
+
+* Admins can create an user from a requested account.
+
+* Admins can reject the request for an account.
+
+* When rejecting, the system should send an e-mail to the requestor.
+
