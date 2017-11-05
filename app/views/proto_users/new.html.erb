@@ -1,0 +1,50 @@
+<h2>Request an account</h2>
+
+<p>
+  Please enter your information below. We will confirm your authorization
+  and contact you at the e-mail address you provide.
+</p>
+
+<%= form_for(@proto_user, url: {action: "create"} ) do |f| %>
+  <% if @proto_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@proto_user.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+      <ul>
+      <% @proto_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :student %><br />
+    <%= f.text_field :student %>
+  </div>
+
+  <div class="field">
+    <%= f.label :teacher %><br />
+    <%= f.text_field :teacher %>
+  </div>
+
+  <div class="field">
+    <%= f.label :grade %><br />
+    <%= f.text_field :grade %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit Request" %>
+  </div>
+<% end %>
+
